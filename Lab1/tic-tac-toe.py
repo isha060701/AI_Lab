@@ -123,6 +123,8 @@ def main():
             else:
                 print('X\'s won this time! Good Job!')
                 break
+        if isBoardFull(board):
+            print('Tie Game!')
     else:
         while not (isBoardFull(board)):
             if not (isWinner(board,'X')):
@@ -143,8 +145,8 @@ def main():
             else:
                 print('Sorry, O\'s won this time!')
                 break
-    if isBoardFull(board):
-        print('Tie Game!')
+        if isBoardFull(board):
+            print('Tie Game!')
 
 
 while True:
