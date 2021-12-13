@@ -1,5 +1,6 @@
 import math
 
+g = 0
 maze = []
 path = []
 closedPath = []
@@ -10,13 +11,14 @@ def euclidDist(x,dest):
     return dist
 
 def findShortestPath(nextPath,dest):
+    global g
     minDistance = 999
     next = []
+    g = g+1
     for x in nextPath:
-        if(len(nextPath)+1+euclidDist(x,dest) < minDistance+len(nextPath)+1):
-            minDistance = euclidDist(x,dest)
+        if(euclidDist(x,dest)+g < minDistance):
+            minDistance = euclidDist(x,dest)+g
             next = x
-
     return next
 
 def findPath(n,m,start,dest):
@@ -59,8 +61,6 @@ def start():
 
     for i in range(n):
         a = []
-        # for j in range(m):
-        #     a.append(int(input()))
         a = list(map(int, input().split(" ")))
         maze.append(a)
 
@@ -91,6 +91,5 @@ def start():
 
     print()
     print(path)
-
-if __name__ == "__main__":
-    start()
+    
+start()
